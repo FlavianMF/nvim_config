@@ -1,0 +1,15 @@
+tt.*
+.tests
+doc/tags
+debug
+.repro
+foo.*
+*.log
+data
+# In ~/.config/nvim/.gitignore
+.git/
+.luacache/
+.session/
+# Add other specific plugin directories if needed, such as:
+lua/custom/  # if you use an NvChad setup that ignores this folder
+
