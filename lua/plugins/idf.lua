@@ -32,7 +32,11 @@ return {
             if pane_exists then
               vim.fn.system(string.format("tmux send-keys -t %s C-c", pane_id))
               vim.fn.system(string.format("tmux send-keys -t %s 'clear' Enter", pane_id))
-              local final_cmd = string.format("tmux send-keys -t %s '%s; echo; read -p \"Press Enter to close panel...\"' Enter", pane_id, command)
+              local final_cmd = string.format(
+                "tmux send-keys -t %s '%s; echo; echo \"Press Enter to close panel...\"; read' Enter",
+                pane_id,
+                command
+              )
               vim.fn.system(final_cmd)
               vim.fn.system(string.format("tmux select-pane -t %s", pane_id))
             else
@@ -40,7 +44,11 @@ return {
               local new_pane_cmd = "tmux split-window -d -P -F '#D'" -- -d to not switch to it
               local new_pane_id = vim.fn.trim(vim.fn.system(new_pane_cmd))
               vim.g.idf_build_pane_id = new_pane_id
-              local final_cmd = string.format("tmux send-keys -t %s '%s; echo; read -p \"Press Enter to close panel...\"' Enter", new_pane_id, command)
+              local final_cmd = string.format(
+                "tmux send-keys -t %s '%s; echo; echo \"Press Enter to close panel...\"; read' Enter",
+                new_pane_id,
+                command
+              )
               vim.fn.system(final_cmd)
               vim.fn.system(string.format("tmux select-pane -t %s", new_pane_id))
             end
