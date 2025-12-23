@@ -1,3 +1,5 @@
+local tmux_pane_height = 10
+
 return {
   {
     "Aietes/esp32.nvim",
@@ -41,7 +43,7 @@ return {
               vim.fn.system(string.format("tmux select-pane -t %s", pane_id))
             else
               -- create new pane
-              local new_pane_cmd = "tmux split-window -d -P -F '#D'" -- -d to not switch to it
+              local new_pane_cmd = string.format("tmux split-window -d -P -F '#D' -l %s", tmux_pane_height) -- -d to not switch to it
               local new_pane_id = vim.fn.trim(vim.fn.system(new_pane_cmd))
               vim.g.idf_cmd_pane_id = new_pane_id
               local final_cmd = string.format(
@@ -87,7 +89,7 @@ return {
               vim.fn.system(string.format("tmux select-pane -t %s", pane_id))
             else
               -- create new pane
-              local new_pane_cmd = "tmux split-window -d -P -F '#D'" -- -d to not switch to it
+              local new_pane_cmd = string.format("tmux split-window -d -P -F '#D' -l %s", tmux_pane_height) -- -d to not switch to it
               local new_pane_id = vim.fn.trim(vim.fn.system(new_pane_cmd))
               vim.g.idf_cmd_pane_id = new_pane_id
               local final_cmd = string.format(
@@ -129,7 +131,7 @@ return {
               vim.fn.system(string.format("tmux select-pane -t %s", pane_id))
             else
               -- create new pane
-              local new_pane_cmd = "tmux split-window -d -P -F '#D'" -- -d to not switch to it
+              local new_pane_cmd = string.format("tmux split-window -d -P -F '#D' -l %s", tmux_pane_height) -- -d to not switch to it
               local new_pane_id = vim.fn.trim(vim.fn.system(new_pane_cmd))
               vim.g.idf_cmd_pane_id = new_pane_id
               local final_cmd = string.format("tmux send-keys -t %s '%s' Enter", new_pane_id, command)
@@ -167,12 +169,12 @@ return {
               vim.fn.system(string.format("tmux select-pane -t %s", pane_id))
             else
               -- create new pane
-              local new_pane_cmd = "tmux split-window -d -P -F '#D'" -- -d to not switch to it
+              local new_pane_cmd = string.format("tmux split-window -d -P -F '#D' -l %s", tmux_pane_height) -- -d to not switch to it
               local new_pane_id = vim.fn.trim(vim.fn.system(new_pane_cmd))
               vim.g.idf_cmd_pane_id = new_pane_id
               local final_cmd = string.format("tmux send-keys -t %s '%s' Enter", new_pane_id, command)
               vim.fn.system(final_cmd)
-              vim.fn.system(string.format("tmux select-pane -t %s", new_same_id))
+              vim.fn.system(string.format("tmux select-pane -t %s", new_pane_id))
             end
           else
             -- Fallback for non-tmux environments
@@ -205,7 +207,7 @@ return {
               vim.fn.system(string.format("tmux select-pane -t %s", pane_id))
             else
               -- create new pane
-              local new_pane_cmd = "tmux split-window -d -P -F '#D'" -- -d to not switch to it
+              local new_pane_cmd = string.format("tmux split-window -d -P -F '#D' -l %s", tmux_pane_height) -- -d to not switch to it
               local new_pane_id = vim.fn.trim(vim.fn.system(new_pane_cmd))
               vim.g.idf_cmd_pane_id = new_pane_id
               local final_cmd = string.format("tmux send-keys -t %s '%s' Enter", new_pane_id, command)
