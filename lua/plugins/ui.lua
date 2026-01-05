@@ -73,4 +73,12 @@ return {
             -- add any options here
         },
     },
+    {
+        "folke/snacks.nvim",
+        opts = {
+            lazygit = {
+                configure = true, -- set to false to disable automatic theme
+            },
+        },
+    },
 }
