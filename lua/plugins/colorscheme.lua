@@ -1,3 +1,18 @@
+-- vim.cmd.colorscheme("vesper")
+
+-- require("vesper").setup({
+--     transparent = false, -- Boolean: Sets the background to transparent
+--     italics = {
+--         comments = true, -- Boolean: Italicizes comments
+--         keywords = true, -- Boolean: Italicizes keywords
+--         functions = true, -- Boolean: Italicizes functions
+--         strings = true, -- Boolean: Italicizes strings
+--         variables = true, -- Boolean: Italicizes variables
+--     },
+--     overrides = {}, -- A dictionary of group names, can be a function returning a dictionary or a table.
+--     palette_overrides = {},
+-- })
+--
 return {
     -- {
     --   "craftzdog/solarized-osaka.nvim",
@@ -9,17 +24,18 @@ return {
     --     }
     --   end,
     -- },
-    {
-        "sainnhe/sonokai",
-        lazy = false,
-        priority = 1000,
-        config = function()
-            -- Optionally configure and load the colorscheme
-            -- directly inside the plugin declaration.
-            vim.g.sonokai_enable_italic = true
-            vim.g.sonokai_style = "andromeda"
-            vim.g.sonokai_transparent_background = 1
-            vim.cmd.colorscheme("sonokai")
-        end,
-    },
+    -- {
+    --     "sainnhe/sonokai",
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function()
+    --         -- Optionally configure and load the colorscheme
+    --         -- directly inside the plugin declaration.
+    --         vim.g.sonokai_enable_italic = true
+    --         vim.g.sonokai_style = "andromeda"
+    --         vim.g.sonokai_transparent_background = 1
+    --         vim.cmd.colorscheme("sonokai")
+    --     end,
+    -- },
+    { "datsfilipe/vesper.nvim" },
 }
