@@ -1,3 +1,4 @@
 [submodule "/home/flv/.config/nvim/pack/nvim/start/nvim-lspconfig"]
 	path = /home/flv/.config/nvim/pack/nvim/start/nvim-lspconfig
 	url = https://github.com/neovim/nvim-lspconfig
+  
