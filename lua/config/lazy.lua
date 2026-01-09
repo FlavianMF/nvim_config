@@ -51,4 +51,4 @@ require("lazy").setup({
   },
 })
 
-vim.cmd.colorscheme("vesper")
+vim.cmd.colorscheme("monokai-pro")

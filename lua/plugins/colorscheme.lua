@@ -14,28 +14,56 @@
 -- })
 --
 return {
-    -- {
-    --   "craftzdog/solarized-osaka.nvim",
-    --   lazy = false,
-    --   priority = 1000,
-    --   opts = function()
-    --     return {
-    --       transparent = true,
-    --     }
-    --   end,
-    -- },
-    -- {
-    --     "sainnhe/sonokai",
-    --     lazy = false,
-    --     priority = 1000,
-    --     config = function()
-    --         -- Optionally configure and load the colorscheme
-    --         -- directly inside the plugin declaration.
-    --         vim.g.sonokai_enable_italic = true
-    --         vim.g.sonokai_style = "andromeda"
-    --         vim.g.sonokai_transparent_background = 1
-    --         vim.cmd.colorscheme("sonokai")
-    --     end,
-    -- },
-    { "datsfilipe/vesper.nvim" },
+  -- {
+  --   "craftzdog/solarized-osaka.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = function()
+  --     return {
+  --       transparent = true,
+  --     }
+  --   end,
+  -- },
+  -- {
+  --     "sainnhe/sonokai",
+  --     lazy = false,
+  --     priority = 1000,
+  --     config = function()
+  --         -- Optionally configure and load the colorscheme
+  --         -- directly inside the plugin declaration.
+  --         vim.g.sonokai_enable_italic = true
+  --         vim.g.sonokai_style = "andromeda"
+  --         vim.g.sonokai_transparent_background = 1
+  --         vim.cmd.colorscheme("sonokai")
+  --     end,
+  -- },
+  {
+    "loctvl842/monokai-pro.nvim",
+    priority = 1000,
+    config = function()
+      require("monokai-pro").setup({
+        transparent_background = true,
+        filter = "spectrum",
+        background_clear = {
+          "telescope",
+          "which-key",
+          "nvim-tree",
+          "bufferline",
+          "float_win",
+          "renamer",
+          "toggleterm",
+          "blink",
+        },
+        override = function()
+          return {
+            Pmenu = { bg = "NONE" },
+            PmenuThumb = { bg = "NONE" },
+            BlinkCmpMenu = { bg = "NONE" },
+          }
+        end,
+      })
+      -- vim.cmd([[colorscheme monokai-pro-spectrum]])
+    end,
+  },
+  { "datsfilipe/vesper.nvim" },
 }
