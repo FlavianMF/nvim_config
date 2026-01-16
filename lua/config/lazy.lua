@@ -52,3 +52,5 @@ require("lazy").setup({
 })
 
 vim.cmd.colorscheme("monokai-pro")
+
+-- require("mini.surround").setup()
