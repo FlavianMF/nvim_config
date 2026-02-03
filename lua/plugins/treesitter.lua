@@ -8,6 +8,9 @@ return {
     if not vim.list_contains(opts.ensure_installed, "jsonc") then
       table.insert(opts.ensure_installed, "jsonc")
     end
+    if not vim.list_contains(opts.ensure_installed, "c") then
+      table.insert(opts.ensure_installed, "c")
+    end
 
     -- Explicitly set parser_install_dir to a known path if not already set by LazyVim
     -- This might help if Neovim is looking in the wrong place

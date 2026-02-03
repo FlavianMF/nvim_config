@@ -8,3 +8,6 @@ stdpath
 spelllang
 nvim
 Zigbee
+SRCS
+oled
+lvgl
