@@ -50,20 +50,20 @@ vim.api.nvim_create_autocmd("BufNewFile", {
 -- Autocommand to insert header guard on newly opened empty C/C++ header files (e.g., created by an explorer)
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = vim.api.nvim_create_augroup("HeaderGuardBufReadPost", { clear = true }),
-  pattern = { "*.h", "*.hpp", "*.c" },
+  pattern = { "*.h", "*.hpp" },
   callback = function()
     -- Check if the buffer is empty (e.g., newly created empty file by an explorer)
     -- Check line count and if the only line is empty
-    if vim.api.nvim_buf_line_count(0) == 1 and vim.api.nvim_buf_get_lines(0, 0, 1, false)[1] == '' then
+    if vim.api.nvim_buf_line_count(0) == 1 and vim.api.nvim_buf_get_lines(0, 0, 1, false)[1] == "" then
       local filename = vim.fn.expand("%:t")
-      local guard_name = string.gsub(string.upper(filename), "[^0-9a-zA-Z_]", "_") .. "_H"
+      local guard_name = string.gsub(string.upper(filename), "[^0-9a-zA-Z_]", "_") .. "__"
 
       vim.api.nvim_buf_set_lines(0, 0, 0, false, {
         "#ifndef " .. guard_name,
         "#define " .. guard_name,
         "",
         "", -- Leave a blank line for content
-        "#endif -- " .. guard_name,
+        "#endif // " .. guard_name,
       })
 
       -- Move the cursor to the blank line
